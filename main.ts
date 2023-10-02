@@ -7,8 +7,8 @@ app.get('/', (c) => {
   return c.json({
     currentTime: now(),
     userAgent: c.req.header('User-Agent'),
-    ipAddress: c.req.header('X-Forwarded-For'),
+    ipAddress: c.req.header('CF-Connecting-IP'),
   });
 });
 
-Deno.serve(app.fetch)
+export default app;
